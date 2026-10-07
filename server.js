@@ -31,7 +31,7 @@ db.on('error', (error) => {
     console.log(error);
 })
 app.get('/', (req, res) => {
-    const {token} = rq.cookies;
+    const {token} = req.cookies;
     const tokenData = jwt.verify(token, process.env.JWT_SECRET_KEY);
     if(tokenData.type == 'user') {
         res.render('home');
